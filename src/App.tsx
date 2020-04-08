@@ -88,7 +88,7 @@ const App = () => {
       <GlobalStyles />
 
       <Stack minHeight="100vh" p={[0, 0, 2, 4]}>
-        <Stack direction="horizontal">
+        <Stack direction={["vertical", "vertical", "horizontal"]}>
           <Dropdown label="options" zIndex={100}>
             {({ handleClose }) => (
               <PaneOption
@@ -121,14 +121,17 @@ const App = () => {
             />
           </Box>
 
-          <Button onClick={handleClick}>execute</Button>
-
-          {/* TODO: Copy-to-clipboard executable JS to make call with query */}
-          <Button>copy</Button>
+          <Stack direction="horizontal">
+            <Button flex="1" onClick={handleClick}>
+              execute
+            </Button>
+            {/* TODO: Copy-to-clipboard executable JS to make call with query */}
+            <Button flex="1">copy</Button>
+          </Stack>
         </Stack>
 
         <Stack direction={["vertical", "vertical", "horizontal"]} flex="1">
-          <Pill px={0} py={0} flex="2" position="relative">
+          <Pill px={0} py={0} flex={2} position="relative">
             <Box
               position="absolute"
               top={0}
@@ -140,7 +143,7 @@ const App = () => {
             </Box>
           </Pill>
 
-          <Pill px={0} py={0} flex="3" position="relative">
+          <Pill px={0} py={0} flex={3} position="relative">
             <Box
               position="absolute"
               top={0}
