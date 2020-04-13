@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@auspices/eos@1.20.2":
-  version "1.20.2"
-  resolved "https://registry.yarnpkg.com/@auspices/eos/-/eos-1.20.2.tgz#62870a5127f172e9171b8d7bbeb4187204f0e497"
-  integrity sha512-ezWaTfO3iDsgZMVTn+QoWg+epCGoDj8XuGWRXK5GP6VSS1rbEiYJp4ZRa3zMsD5PSBMK8tf1llFsroe8Uy1eBg==
+"@auspices/eos@1.20.3":
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/@auspices/eos/-/eos-1.20.3.tgz#d8b90f89e87c12f9623c0fb979d427e190f53df7"
+  integrity sha512-pIpBlygjr2MLc01Wqf9UTLKUn3O+arqep/KNOHg7EehQxEepaOi/9cgP8w3vFsM8c9QJIx920kWNUm2gQef7KA==
   dependencies:
     "@popperjs/core" "^2.1.1"
     "@seznam/compose-react-refs" "^1.0.4"
