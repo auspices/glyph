@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import useClipboard from "react-use-clipboard";
 import { ThemeProvider } from "styled-components";
 import {
   Pill,
@@ -15,8 +16,11 @@ import {
 import { Indicator } from "./components/Indicator";
 import { Editor } from "./components/Editor";
 import { Code } from "./components/Code";
+import { camelize } from "./lib/camelize";
+import { request } from "./lib/request";
 
 const ENDPOINT = "https://atlas.auspic.es";
+const Z_DROPDOWN = 100;
 
 enum Mode {
   Pending,
@@ -25,32 +29,36 @@ enum Mode {
   Error,
 }
 
+const INITIAL_QUERY = `{
+  object {
+    ... on Collection {
+      title
+    }
+  }
+}`;
+
 const App = () => {
   const { theme, toggleScheme, scheme } = useThemer();
 
+  const [name, setName] = useState("example");
   const [mode, setMode] = useState(Mode.Pending);
   const [path, setPath] = useState(window.location.pathname);
-  const [value, setValue] = useState("");
+  const [query, setQuery] = useState("");
   const [output, setOutput] = useState<Record<string, any>>({ loading: true });
 
   const endpoint = [ENDPOINT, path].join("");
+  const [isEndpointCopied, handleEndpointCopy] = useClipboard(endpoint, {
+    successDuration: 1000,
+  });
 
   const execute = useCallback(() => {
     setMode(Mode.Loading);
 
-    fetch(endpoint, {
-      method: "POST",
-      body: JSON.stringify({ query: value }),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((parsed) => {
-        setOutput(parsed);
+    request({ url: endpoint, query })
+      .then((res) => {
+        setOutput(res);
 
-        if ("errors" in parsed || "error" in parsed) {
+        if ("errors" in res || "error" in res) {
           setMode(Mode.Error);
           return;
         }
@@ -62,7 +70,7 @@ const App = () => {
 
         setMode(Mode.Error);
       });
-  }, [endpoint, value]);
+  }, [endpoint, query]);
 
   const handleUrlChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,13 +91,25 @@ const App = () => {
     window.history.replaceState({}, "", path);
   }, [path]);
 
+  useEffect(() => {
+    request({ url: endpoint, query: INITIAL_QUERY }).then(
+      ({
+        data: {
+          object: { title },
+        },
+      }) => {
+        setName(camelize(title));
+      }
+    );
+  }, [endpoint]);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
 
       <Stack minHeight="100vh" p={[0, 0, 2, 4]}>
         <Stack direction={["vertical", "vertical", "horizontal"]}>
-          <Dropdown label="options" zIndex={100}>
+          <Dropdown label="options" zIndex={Z_DROPDOWN}>
             {({ handleClose }) => (
               <PaneOption
                 onClick={() => {
@@ -97,7 +117,7 @@ const App = () => {
                   handleClose();
                 }}
               >
-                toggle {{ dark: "light", light: "dark" }[scheme]} mode
+                {{ dark: "light", light: "dark" }[scheme]}
               </PaneOption>
             )}
           </Dropdown>
@@ -122,11 +142,15 @@ const App = () => {
           </Box>
 
           <Stack direction="horizontal">
+            <Dropdown flex="1" label="copy" zIndex={Z_DROPDOWN}>
+              <PaneOption onClick={handleEndpointCopy}>
+                {isEndpointCopied ? "copied" : "endpoint"}
+              </PaneOption>
+            </Dropdown>
+
             <Button flex="1" onClick={handleClick}>
               execute
             </Button>
-            {/* TODO: Copy-to-clipboard executable JS to make call with query */}
-            <Button flex="1">copy</Button>
           </Stack>
         </Stack>
 
@@ -139,7 +163,7 @@ const App = () => {
               width="100%"
               height="100%"
             >
-              <Editor onUpdate={setValue} />
+              <Editor name={name} onUpdate={setQuery} />
             </Box>
           </Pill>
 

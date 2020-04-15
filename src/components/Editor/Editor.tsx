@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Code, CodeProps } from "../Code";
 
-const EXAMPLE_QUERY = `{
-  example: object {
+const generateQuery = (name: string) => `{
+  ${name}: object {
     ... on Collection {
       id
       name
@@ -32,6 +32,13 @@ const EXAMPLE_QUERY = `{
             name
             url
           }
+          ... on Collection {
+            id
+            name
+            counts {
+              contents
+            }
+          }
         }
       }
     }
@@ -40,17 +47,18 @@ const EXAMPLE_QUERY = `{
 `;
 
 export type EditorProps = Omit<CodeProps, "onUpdate"> & {
+  name: string;
   onUpdate(value: string): void;
 };
 
-export const Editor: React.FC<EditorProps> = ({ onUpdate, ...rest }) => {
+export const Editor: React.FC<EditorProps> = ({ name, onUpdate, ...rest }) => {
   useEffect(() => {
-    onUpdate(EXAMPLE_QUERY);
-  }, [onUpdate]);
+    onUpdate(generateQuery(name));
+  }, [name, onUpdate]);
 
   return (
     <Code
-      value={EXAMPLE_QUERY}
+      value={generateQuery(name)}
       options={{
         mode: "graphql",
         lineNumbers: true,
