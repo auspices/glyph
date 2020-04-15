@@ -52,6 +52,8 @@ const App = () => {
   });
 
   const execute = useCallback(() => {
+    if (query === "") return;
+
     setMode(Mode.Loading);
 
     request({ url: endpoint, query })
