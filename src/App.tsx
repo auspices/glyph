@@ -1,3 +1,4 @@
+import { introspectionQuery, buildClientSchema, GraphQLSchema } from "graphql";
 import React, { useState, useEffect, useCallback } from "react";
 import useClipboard from "react-use-clipboard";
 import { ThemeProvider } from "styled-components";
@@ -45,6 +46,7 @@ const App = () => {
   const [path, setPath] = useState(window.location.pathname);
   const [query, setQuery] = useState("");
   const [output, setOutput] = useState<Record<string, any>>({ loading: true });
+  const [schema, setSchema] = useState<GraphQLSchema | undefined>();
 
   const endpoint = [ENDPOINT, path].join("");
   const [isEndpointCopied, handleEndpointCopy] = useClipboard(endpoint, {
@@ -102,6 +104,12 @@ const App = () => {
       }) => {
         setName(camelize(title));
       }
+    );
+  }, [endpoint]);
+
+  useEffect(() => {
+    request({ url: endpoint, query: introspectionQuery }).then(({ data }) =>
+      setSchema(buildClientSchema(data))
     );
   }, [endpoint]);
 
@@ -165,7 +173,7 @@ const App = () => {
               width="100%"
               height="100%"
             >
-              <Editor name={name} onUpdate={setQuery} />
+              <Editor name={name} schema={schema} onUpdate={setQuery} />
             </Box>
           </Pill>
 
