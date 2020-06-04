@@ -23,7 +23,7 @@
     "@types/styled-system": "5.1.9",
     "@types/styled-system__theme-get": "5.0.0",
     "react-scripts": "3.4.1",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
