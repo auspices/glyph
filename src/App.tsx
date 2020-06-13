@@ -19,6 +19,7 @@ import { Editor } from "./components/Editor";
 import { Code } from "./components/Code";
 import { camelize } from "./lib/camelize";
 import { request } from "./lib/request";
+// import { Editor2 } from "./components/Editor2/Editor2";
 
 const ENDPOINT = "https://atlas.auspic.es";
 const Z_DROPDOWN = 100;

@@ -60,12 +60,11 @@ export const Editor: React.FC<EditorProps> = ({
   ...rest
 }) => {
   const ref = useRef(null);
+  const instance = useRef<any | null>(null);
 
   useEffect(() => {
     onUpdate(generateQuery(name));
   }, [name, onUpdate]);
-
-  // console.log((ref.current as any)?.ref);
 
   return (
     <Code
@@ -73,10 +72,12 @@ export const Editor: React.FC<EditorProps> = ({
       value={generateQuery(name)}
       options={{
         mode: "graphql",
+        viewportMargin: Infinity,
         lineNumbers: true,
         autoCloseBrackets: true,
         matchBrackets: true,
         showCursorWhenSelecting: true,
+        keyMap: "sublime",
         tabSize: 2,
         lint: {
           schema,
@@ -86,15 +87,25 @@ export const Editor: React.FC<EditorProps> = ({
           closeOnUnfocus: false,
           completeSingle: false,
         },
-        info: {
-          schema,
-          renderDescription: (text: any) => console.log(text),
-        },
-        jump: {
-          schema,
-        },
+        info: { schema },
+        jump: { schema },
       }}
       onUpdate={(editor) => onUpdate(editor.getValue())}
+      onKeyUp={(editor, event) => {
+        const { keyCode, shiftKey } = event;
+        if (
+          (keyCode >= 65 && keyCode <= 90) || // letters
+          (!shiftKey && keyCode >= 48 && keyCode <= 57) || // numbers
+          (shiftKey && keyCode === 189) || // underscore
+          (shiftKey && keyCode === 50) || // @
+          (shiftKey && keyCode === 57) // (
+        ) {
+          editor.execCommand("autocomplete");
+        }
+      }}
+      editorDidMount={(editor) => {
+        instance.current = editor;
+      }}
       {...rest}
     />
   );
