@@ -22,7 +22,7 @@
     "@types/styled-components": "5.1.2",
     "@types/styled-system": "5.1.10",
     "@types/styled-system__theme-get": "5.0.0",
-    "react-scripts": "3.4.2",
+    "react-scripts": "3.4.3",
     "typescript": "3.9.7"
   },
   "scripts": {
