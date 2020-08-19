@@ -11,7 +11,6 @@ import {
   useThemer,
   PaneOption,
   Dropdown,
-  Button,
   Box,
 } from "@auspices/eos";
 import { Indicator } from "./components/Indicator";
@@ -19,7 +18,6 @@ import { Editor } from "./components/Editor";
 import { Code } from "./components/Code";
 import { camelize } from "./lib/camelize";
 import { request } from "./lib/request";
-// import { Editor2 } from "./components/Editor2/Editor2";
 
 const ENDPOINT = "https://atlas.auspic.es";
 const Z_DROPDOWN = 100;
@@ -40,7 +38,7 @@ const INITIAL_QUERY = `{
 }`;
 
 const App = () => {
-  const { theme, toggleScheme, scheme } = useThemer();
+  const { theme } = useThemer();
 
   const [name, setName] = useState("example");
   const [mode, setMode] = useState(Mode.Pending);
@@ -84,10 +82,6 @@ const App = () => {
     []
   );
 
-  const handleClick = useCallback(() => {
-    execute();
-  }, [execute]);
-
   useEffect(() => {
     execute();
   }, [execute]);
@@ -120,19 +114,6 @@ const App = () => {
 
       <Stack minHeight="100vh" p={[0, 0, 2, 4]}>
         <Stack direction={["vertical", "vertical", "horizontal"]}>
-          <Dropdown label="options" zIndex={Z_DROPDOWN}>
-            {({ handleClose }) => (
-              <PaneOption
-                onClick={() => {
-                  toggleScheme();
-                  handleClose();
-                }}
-              >
-                {{ dark: "light", light: "dark" }[scheme]}
-              </PaneOption>
-            )}
-          </Dropdown>
-
           <Box flex="1" display="flex" position="relative">
             <Indicator
               position="absolute"
@@ -154,14 +135,17 @@ const App = () => {
 
           <Stack direction="horizontal">
             <Dropdown flex="1" label="copy" zIndex={Z_DROPDOWN}>
-              <PaneOption onClick={handleEndpointCopy}>
-                {isEndpointCopied ? "copied" : "endpoint"}
-              </PaneOption>
+              {({ handleClose }) => (
+                <PaneOption
+                  onClick={() => {
+                    handleEndpointCopy();
+                    setTimeout(() => handleClose(), 500);
+                  }}
+                >
+                  {isEndpointCopied ? "copied" : "endpoint"}
+                </PaneOption>
+              )}
             </Dropdown>
-
-            <Button flex="1" onClick={handleClick}>
-              execute
-            </Button>
           </Stack>
         </Stack>
 
