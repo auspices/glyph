@@ -1,4 +1,8 @@
-import { introspectionQuery, buildClientSchema, GraphQLSchema } from "graphql";
+import {
+  getIntrospectionQuery,
+  buildClientSchema,
+  GraphQLSchema,
+} from "graphql";
 import React, { useState, useEffect, useCallback } from "react";
 import useClipboard from "react-use-clipboard";
 import { ThemeProvider } from "styled-components";
@@ -103,9 +107,10 @@ const App = () => {
   }, [endpoint]);
 
   useEffect(() => {
-    request({ url: endpoint, query: introspectionQuery }).then(({ data }) =>
-      setSchema(buildClientSchema(data))
-    );
+    request({
+      url: endpoint,
+      query: getIntrospectionQuery(),
+    }).then(({ data }) => setSchema(buildClientSchema(data)));
   }, [endpoint]);
 
   return (
