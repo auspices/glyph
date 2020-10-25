@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@auspices/eos": "2.13.1",
+    "@auspices/eos": "2.13.2",
     "@styled-system/theme-get": "5.1.2",
     "codemirror": "5.58.2",
     "codemirror-graphql": "0.12.3",
