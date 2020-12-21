@@ -8729,10 +8729,10 @@ react-style-singleton@^2.1.0:
     invariant "^2.2.4"
     tslib "^1.0.0"
 
-react-use-clipboard@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-use-clipboard/-/react-use-clipboard-1.0.4.tgz#1dc4daec3cc6520478c0b1fe0568f5893dbaaa4e"
-  integrity sha512-cHqQhqhkmANM9HDX0SNy2aknaNpEliIThT1XEOjq4ye82d+0XUsJH28/2aiPLgeh8en7gjmqp5D7BvQW4ZjKRA==
+react-use-clipboard@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-use-clipboard/-/react-use-clipboard-1.0.6.tgz#04582d9d5df22395ee250b801c48f66df794a4de"
+  integrity sha512-qA9/PVClz+OjTV4tcLPJ4q0sHScf5Gmp6qSYg6zolcqxtFBlG9qepTapbCQn5g+FYDc8ol3m0/qG+xyN+RKDSQ==
   dependencies:
     copy-to-clipboard "^3.3.1"
 
