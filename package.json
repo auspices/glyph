@@ -5,7 +5,7 @@
   "dependencies": {
     "@auspices/eos": "2.22.1",
     "@styled-system/theme-get": "5.1.2",
-    "codemirror": "5.61.0",
+    "codemirror": "5.61.1",
     "codemirror-graphql": "0.15.2",
     "graphql": "15.5.0",
     "react": "16.14.0",
