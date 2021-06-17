@@ -21,7 +21,7 @@
     "@types/styled-components": "5.1.10",
     "@types/styled-system": "5.1.11",
     "@types/styled-system__theme-get": "5.0.1",
-    "react-scripts": "3.4.4",
+    "react-scripts": "4.0.3",
     "typescript": "3.9.10"
   },
   "scripts": {
