@@ -187,10 +187,12 @@ const App = () => {
   );
 };
 
-export default () => {
+const AppWithTheme = () => {
   return (
     <ThemerProvider>
       <App />
     </ThemerProvider>
   );
 };
+
+export default AppWithTheme;
