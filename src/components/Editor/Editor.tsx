@@ -40,6 +40,13 @@ const generateQuery = (name: string) => `{
               contents
             }
           }
+          ... on Attachment {
+            id
+            name
+            url
+            fileSize
+            contentType
+          }
         }
       }
     }
