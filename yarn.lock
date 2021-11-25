@@ -3905,10 +3905,10 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codemirror-graphql@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-1.2.2.tgz#8921b71f3bac17a96d975882fa7d8129f7910d73"
-  integrity sha512-52fJOx9JdPejPfbBr9fMGspBo3qRfYu1Cuwr4Z6Rtd13n42mCfdCnAnCSnOtzr9oiTj1hva+CDZhbA1vkUtaDg==
+codemirror-graphql@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-1.2.3.tgz#06c9fe1e143e12ed7ad87c33c25cda5d08ae29e8"
+  integrity sha512-fc/ZUr2SGqro4rjM/uqhOJdSWXWb++4sEovX4UzQfJcF+vCe2EqCBDo4kPF99DBqj5c9V7Bm+KWad07N0S6ziQ==
   dependencies:
     "@codemirror/stream-parser" "^0.19.2"
     graphql-language-service "^3.2.3"
