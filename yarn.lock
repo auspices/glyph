@@ -3893,13 +3893,13 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codemirror-graphql@1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-1.2.3.tgz#06c9fe1e143e12ed7ad87c33c25cda5d08ae29e8"
-  integrity sha512-fc/ZUr2SGqro4rjM/uqhOJdSWXWb++4sEovX4UzQfJcF+vCe2EqCBDo4kPF99DBqj5c9V7Bm+KWad07N0S6ziQ==
+codemirror-graphql@1.2.16:
+  version "1.2.16"
+  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-1.2.16.tgz#21722300a189320333ee923c1644d4c3e1a0990b"
+  integrity sha512-26F6vkrqnZ5g/v3FTYhNtwdB2CZ8zatE8wI5W+EoNx5O1yQ+2KCZUnX3uREKqV/bHMS9TIvtlsPVg5EXYDk2MQ==
   dependencies:
     "@codemirror/stream-parser" "^0.19.2"
-    graphql-language-service "^3.2.3"
+    graphql-language-service "^5.0.2"
 
 codemirror@5.65.2:
   version "5.65.2"
@@ -6014,45 +6014,13 @@ graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
 
-graphql-language-service-interface@^2.9.3:
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/graphql-language-service-interface/-/graphql-language-service-interface-2.9.3.tgz#7b5d69aaf0da225444ddf271d4445ec7e6599a23"
-  integrity sha512-ie5OjsXOuHd9XBWyNy9SR3noDTMbOm0ixiqrEHprlJ4naxRUrUi1Y+9Rd1rDo2BEiN1NPcYvDRRg5E/Yvqp53Q==
+graphql-language-service@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/graphql-language-service/-/graphql-language-service-5.0.2.tgz#50bb6ccaf488e4d4ff5f73efbb9c1b328afc2026"
+  integrity sha512-CHw78TGrUywA1Iut8PNIGfW2bonJCCgtD3nfhUGkIaiMoN/Y7IbftxlshauLNufRYhDXLSfNDDSvHFjh3agP/Q==
   dependencies:
-    graphql-language-service-parser "^1.10.2"
-    graphql-language-service-types "^1.8.5"
-    graphql-language-service-utils "^2.6.2"
-    vscode-languageserver-types "^3.15.1"
-
-graphql-language-service-parser@^1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/graphql-language-service-parser/-/graphql-language-service-parser-1.10.2.tgz#d1a202a0bcf490c57b4b3525ffddeed4eb90ef18"
-  integrity sha512-xtBqzMXW5qJwHPmtDuiuUq4mZ3q31XThMp4TrNNVJ7HsiDxNSfOEaX069YXuiDRkVXjLYcCvt/JPsTgEASREzQ==
-  dependencies:
-    graphql-language-service-types "^1.8.5"
-
-graphql-language-service-types@^1.8.5:
-  version "1.8.5"
-  resolved "https://registry.yarnpkg.com/graphql-language-service-types/-/graphql-language-service-types-1.8.5.tgz#04845c7dbf8554d438a81c01be7cd3aa62b5d180"
-  integrity sha512-LEhm0ZC2XtasCwy5YQSbXlrN4Zj4epTFF7fjSq75aWUjLoN/iEFE1yTjvoH+1UmZnCvLbTlvL5dVNDtUysBW8A==
-
-graphql-language-service-utils@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/graphql-language-service-utils/-/graphql-language-service-utils-2.6.2.tgz#5d7c221e935657a3d23852317adaa6b8ed032b9f"
-  integrity sha512-YyOUsbHJHruW1hjciBw5Em1XENw/OLFnA4RLrLaHvLTDSEoQsa8esiMTMHWq9cM1Ywh1jBWr8A5T3fNyPf4fNQ==
-  dependencies:
-    graphql-language-service-types "^1.8.5"
     nullthrows "^1.0.0"
-
-graphql-language-service@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/graphql-language-service/-/graphql-language-service-3.2.3.tgz#47ede4afbdbd40a11474d4a0001df3797bdd1fc5"
-  integrity sha512-/SmGcCetAn7hEsbmH/pxgQvcfCSAz9/JT0ve9ZOkVk7xXTVbss6PD6aT5KuZhpG2fFOLuI5kbCN6cNvjGHXeFA==
-  dependencies:
-    graphql-language-service-interface "^2.9.3"
-    graphql-language-service-parser "^1.10.2"
-    graphql-language-service-types "^1.8.5"
-    graphql-language-service-utils "^2.6.2"
+    vscode-languageserver-types "^3.15.1"
 
 graphql@15.8.0:
   version "15.8.0"
