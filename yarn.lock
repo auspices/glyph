@@ -3893,13 +3893,13 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codemirror-graphql@1.2.16:
-  version "1.2.16"
-  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-1.2.16.tgz#21722300a189320333ee923c1644d4c3e1a0990b"
-  integrity sha512-26F6vkrqnZ5g/v3FTYhNtwdB2CZ8zatE8wI5W+EoNx5O1yQ+2KCZUnX3uREKqV/bHMS9TIvtlsPVg5EXYDk2MQ==
+codemirror-graphql@1.2.17:
+  version "1.2.17"
+  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-1.2.17.tgz#09f2812c65067c6b818b2db560dc6b14599b0cf2"
+  integrity sha512-8zV7yxylAnKeinZPANhhAp4XiqDnFwWe74/At+SvAPgsRXpB2MfeE4J9BSJOIzImpGRlnU9W9X22jGous8qx6g==
   dependencies:
     "@codemirror/stream-parser" "^0.19.2"
-    graphql-language-service "^5.0.2"
+    graphql-language-service "^5.0.3"
 
 codemirror@5.65.2:
   version "5.65.2"
@@ -6014,10 +6014,10 @@ graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
 
-graphql-language-service@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-language-service/-/graphql-language-service-5.0.2.tgz#50bb6ccaf488e4d4ff5f73efbb9c1b328afc2026"
-  integrity sha512-CHw78TGrUywA1Iut8PNIGfW2bonJCCgtD3nfhUGkIaiMoN/Y7IbftxlshauLNufRYhDXLSfNDDSvHFjh3agP/Q==
+graphql-language-service@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/graphql-language-service/-/graphql-language-service-5.0.3.tgz#6986fef10f622b00417be0b5d914032b06aec654"
+  integrity sha512-mO/xyZGXEri/Ythq+60eSPJqU7emUyAXd0LkrSC9rMk/UiUPV4M1xgZdZ6GnacazGR1wcCDaZs1VtsYpgVQbMQ==
   dependencies:
     nullthrows "^1.0.0"
     vscode-languageserver-types "^3.15.1"
